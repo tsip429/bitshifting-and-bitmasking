@@ -1,0 +1,4 @@
+#include "machine.c"
+#include "machine.h"
+int main() {
+  print_instruction

@@ -1,0 +1,4 @@
+#include "machine.c"
+
+int main() {
+  

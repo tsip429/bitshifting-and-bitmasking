@@ -1,0 +1,7 @@
+#include "machine.h"
+#include <stdio.h>
+#include <assert.h>
+
+int main() {
+  print_instruction(0xa0800000);
+  assert(valid_instruction(0xa8800000) == BADADDR

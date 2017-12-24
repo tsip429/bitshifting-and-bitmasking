@@ -1,0 +1,45 @@
+#include "machine.h"
+
+int main() {
+  int valid[22][5];
+  int decode_instruction (Word instruction, unsigned short *const opcode, unsigned int *const imm_or_addr, unsigned short *const reg1, unsigned short *const reg2) {
+    int i;
+    int pos = 0;
+    int retval = 0;
+    unsigned short opc = 0;
+    unsigned int addr = 0;
+    unsigned short reg_one = 0;
+    unsigned short reg_two = 0;
+    opcode = &opc;
+    imm_or_addr = &addr;
+    reg1 = &reg_one;
+    reg2 = &reg_two;
+    if (!(opcode == NULL && imm_or_addr == NULL && reg1 == NULL
+	  && reg2 == NULL)) {
+      retval = 1;
+      for (i = 31; i > 0; i--) {
+	opc <<= 1;
+	addr <<= 1;
+	reg_one <<= 1;
+	reg_two <<= 1;
+	while (pos < 5){
+	  opc |= (instruction >> i) & 1;
+	  pos++;
+	}
+	while (pos < 22) {
+	  addr |= (instruction >> i) & 1;
+	  pos++;
+	}
+	while (pos < 27) {
+	  reg_one |= (instruction >> i) & 1;
+	  pos++;
+	}
+	while (pos < 32) {
+	  reg_two |= (instruction >> i) & 1;
+	}
+      }
+      return retval;
+    }
+  }
+	
+	
