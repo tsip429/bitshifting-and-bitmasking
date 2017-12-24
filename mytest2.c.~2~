@@ -1,7 +1,0 @@
-#include "machine.h"
-#include <stdio.h>
-
-int main() {
-  print_instruction(0x16000000);
-  return 0;
-}
