@@ -1,9 +1,0 @@
-#include "machine.h"
-#include <stdio.h>
-#include <assert.h>
-
-int main() {
-  print_instruction(0x00000000);
-  print_instruction(0x80008100);
-  assert(valid_instruction(0x80008100) == BADREG1);
-  printf("yay!");
